@@ -44,7 +44,7 @@
         "cnr_id": "comfyui"
       },
       "widgets_values": [
-        "RealVisXL_V5.0.safetensors"
+        "realvisxlV50_v50Bakedvae.safetensors"
       ]
     },
     {
@@ -93,9 +93,9 @@
         "cnr_id": "comfyui"
       },
       "widgets_values": [
-        "archisketch-v1.safetensors",
-        0.2,
-        0.2
+        "add-detail-xl.safetensors",
+        0.75,
+        0.75
       ]
     },
     {
@@ -144,9 +144,9 @@
         "cnr_id": "comfyui"
       },
       "widgets_values": [
-        "ArchitecturalModels_v12.safetensors",
-        0.15,
-        0.15
+        "add-detail-xl.safetensors",
+        0.0,
+        0.0
       ]
     },
     {
@@ -180,7 +180,8 @@
           "name": "MODEL",
           "type": "MODEL",
           "links": [
-            7
+            7,
+            29
           ]
         },
         {
@@ -197,8 +198,8 @@
       },
       "widgets_values": [
         "add-detail-xl.safetensors",
-        0.1,
-        0.1
+        0.0,
+        0.0
       ]
     },
     {
@@ -227,7 +228,8 @@
           "name": "CONDITIONING",
           "type": "CONDITIONING",
           "links": [
-            10
+            10,
+            30
           ]
         }
       ],
@@ -271,7 +273,8 @@
           "name": "CONDITIONING",
           "type": "CONDITIONING",
           "links": [
-            11
+            11,
+            31
           ]
         }
       ],
@@ -698,16 +701,14 @@
           "name": "positive",
           "type": "CONDITIONING",
           "links": [
-            25,
-            30
+            25
           ]
         },
         {
           "name": "negative",
           "type": "CONDITIONING",
           "links": [
-            26,
-            31
+            26
           ]
         }
       ],
@@ -899,9 +900,7 @@
         {
           "name": "MODEL",
           "type": "MODEL",
-          "links": [
-            29
-          ]
+          "links": []
         },
         {
           "name": "CLIP",
@@ -1347,7 +1346,7 @@
     ],
     [
       29,
-      21,
+      20,
       0,
       22,
       0,
@@ -1355,7 +1354,7 @@
     ],
     [
       30,
-      14,
+      3,
       0,
       22,
       1,
@@ -1363,8 +1362,8 @@
     ],
     [
       31,
-      14,
-      1,
+      4,
+      0,
       22,
       2,
       "CONDITIONING"
