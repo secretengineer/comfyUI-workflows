@@ -1,6 +1,6 @@
 {
-  "last_node_id": 26,
-  "last_link_id": 39,
+  "last_node_id": 29,
+  "last_link_id": 44,
   "nodes": [
     {
       "id": 1,
@@ -180,8 +180,7 @@
           "name": "MODEL",
           "type": "MODEL",
           "links": [
-            7,
-            29
+            7
           ]
         },
         {
@@ -228,8 +227,7 @@
           "name": "CONDITIONING",
           "type": "CONDITIONING",
           "links": [
-            10,
-            30
+            10
           ]
         }
       ],
@@ -237,11 +235,11 @@
         "cnr_id": "comfyui"
       },
       "widgets_values": [
-        1024,
+        1344,
         768,
         0,
         0,
-        1024,
+        1344,
         768,
         "photorealistic architectural visualization, interior daylight, accurate geometry, precise wall alignment, realistic materials, clean edges, physically correct lighting, global illumination, high detail, professional render, 35mm lens, straight verticals",
         ""
@@ -273,8 +271,7 @@
           "name": "CONDITIONING",
           "type": "CONDITIONING",
           "links": [
-            11,
-            31
+            11
           ]
         }
       ],
@@ -282,11 +279,11 @@
         "cnr_id": "comfyui"
       },
       "widgets_values": [
-        1024,
+        1344,
         768,
         0,
         0,
-        1024,
+        1344,
         768,
         "distorted layout, warped walls, curved lines, fantasy, inaccurate geometry, extra rooms, broken perspective, cartoon, low detail, overly stylized, fisheye",
         ""
@@ -312,9 +309,7 @@
           "name": "IMAGE",
           "type": "IMAGE",
           "links": [
-            12,
-            13,
-            14
+            12
           ]
         },
         {
@@ -348,7 +343,7 @@
         {
           "name": "image",
           "type": "IMAGE",
-          "link": 12
+          "link": 13
         }
       ],
       "outputs": [
@@ -365,7 +360,7 @@
       },
       "widgets_values": [
         "disable",
-        1024
+        1344
       ]
     },
     {
@@ -386,7 +381,7 @@
         {
           "name": "image",
           "type": "IMAGE",
-          "link": 13
+          "link": 14
         }
       ],
       "outputs": [
@@ -424,7 +419,7 @@
         {
           "name": "image",
           "type": "IMAGE",
-          "link": 14
+          "link": 44
         }
       ],
       "outputs": [
@@ -442,7 +437,7 @@
       "widgets_values": [
         6.283185307179586,
         0.1,
-        1024
+        1344
       ]
     },
     {
@@ -749,7 +744,7 @@
         "cnr_id": "comfyui"
       },
       "widgets_values": [
-        1024,
+        1344,
         768,
         1
       ]
@@ -900,12 +895,17 @@
         {
           "name": "MODEL",
           "type": "MODEL",
-          "links": []
+          "links": [
+            29
+          ]
         },
         {
           "name": "CLIP",
           "type": "CLIP",
-          "links": []
+          "links": [
+            40,
+            41
+          ]
         },
         {
           "name": "VAE",
@@ -945,12 +945,12 @@
         {
           "name": "positive",
           "type": "CONDITIONING",
-          "link": 30
+          "link": 42
         },
         {
           "name": "negative",
           "type": "CONDITIONING",
-          "link": 31
+          "link": 43
         },
         {
           "name": "latent_image",
@@ -973,11 +973,11 @@
       "widgets_values": [
         0,
         "fixed",
-        20,
-        4.0,
+        12,
+        4.5,
         "dpmpp_2m_sde",
         "karras",
-        0.35
+        0.22
       ]
     },
     {
@@ -1117,6 +1117,128 @@
       "widgets_values": [
         "PR-interior_upscaled"
       ]
+    },
+    {
+      "id": 27,
+      "type": "CLIPTextEncodeSDXLRefiner",
+      "pos": [
+        1460,
+        -180
+      ],
+      "size": [
+        420,
+        140
+      ],
+      "flags": {},
+      "order": 26,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 40
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            42
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui"
+      },
+      "widgets_values": [
+        6.0,
+        1344,
+        768,
+        "photorealistic architectural visualization, interior daylight, accurate geometry, precise wall alignment, realistic materials, clean edges, physically correct lighting, global illumination, high detail, professional render, 35mm lens, straight verticals"
+      ]
+    },
+    {
+      "id": 28,
+      "type": "CLIPTextEncodeSDXLRefiner",
+      "pos": [
+        1460,
+        -20
+      ],
+      "size": [
+        420,
+        140
+      ],
+      "flags": {},
+      "order": 27,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 41
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            43
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui"
+      },
+      "widgets_values": [
+        2.5,
+        1344,
+        768,
+        "distorted layout, warped walls, curved lines, fantasy, inaccurate geometry, extra rooms, broken perspective, cartoon, low detail, overly stylized, fisheye"
+      ]
+    },
+    {
+      "id": 29,
+      "type": "ImageScale",
+      "pos": [
+        -60,
+        -80
+      ],
+      "size": [
+        320,
+        130
+      ],
+      "flags": {},
+      "order": 28,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 12
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            13,
+            14,
+            44
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui"
+      },
+      "widgets_values": [
+        "lanczos",
+        1344,
+        768,
+        "disabled"
+      ]
     }
   ],
   "links": [
@@ -1207,30 +1329,6 @@
       12,
       1,
       "CONDITIONING"
-    ],
-    [
-      12,
-      5,
-      0,
-      6,
-      0,
-      "IMAGE"
-    ],
-    [
-      13,
-      5,
-      0,
-      7,
-      0,
-      "IMAGE"
-    ],
-    [
-      14,
-      5,
-      0,
-      8,
-      0,
-      "IMAGE"
     ],
     [
       15,
@@ -1345,30 +1443,6 @@
       "LATENT"
     ],
     [
-      29,
-      20,
-      0,
-      22,
-      0,
-      "MODEL"
-    ],
-    [
-      30,
-      3,
-      0,
-      22,
-      1,
-      "CONDITIONING"
-    ],
-    [
-      31,
-      4,
-      0,
-      22,
-      2,
-      "CONDITIONING"
-    ],
-    [
       32,
       22,
       0,
@@ -1429,6 +1503,78 @@
       17,
       0,
       18,
+      0,
+      "IMAGE"
+    ],
+    [
+      29,
+      21,
+      0,
+      22,
+      0,
+      "MODEL"
+    ],
+    [
+      40,
+      21,
+      1,
+      27,
+      0,
+      "CLIP"
+    ],
+    [
+      41,
+      21,
+      1,
+      28,
+      0,
+      "CLIP"
+    ],
+    [
+      42,
+      27,
+      0,
+      22,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      43,
+      28,
+      0,
+      22,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      12,
+      5,
+      0,
+      29,
+      0,
+      "IMAGE"
+    ],
+    [
+      13,
+      29,
+      0,
+      6,
+      0,
+      "IMAGE"
+    ],
+    [
+      14,
+      29,
+      0,
+      7,
+      0,
+      "IMAGE"
+    ],
+    [
+      44,
+      29,
+      0,
+      8,
       0,
       "IMAGE"
     ]
