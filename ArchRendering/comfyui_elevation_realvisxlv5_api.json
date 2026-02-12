@@ -1,0 +1,237 @@
+{
+  "1": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "PUT_YOUR_CLAY_ELEVATION.png",
+      "upload": true
+    }
+  },
+  "2": {
+    "class_type": "ImageScale",
+    "inputs": {
+      "image": [
+        "1",
+        0
+      ],
+      "upscale_method": "lanczos",
+      "width": 1344,
+      "height": 768,
+      "crop": "center"
+    }
+  },
+  "3": {
+    "class_type": "CheckpointLoaderSimple",
+    "inputs": {
+      "ckpt_name": "RealVisXL_V5.0.safetensors"
+    }
+  },
+  "4": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "clip": [
+        "3",
+        1
+      ],
+      "text": "<PASTE_ELEVATION_POSITIVE_PROMPT_HERE>"
+    }
+  },
+  "5": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "clip": [
+        "3",
+        1
+      ],
+      "text": "<PASTE_ELEVATION_NEGATIVE_PROMPT_HERE>"
+    }
+  },
+  "6": {
+    "class_type": "VAEEncode",
+    "inputs": {
+      "pixels": [
+        "2",
+        0
+      ],
+      "vae": [
+        "3",
+        2
+      ]
+    }
+  },
+  "10": {
+    "class_type": "AUX_DepthAnythingPreprocessor",
+    "inputs": {
+      "image": [
+        "2",
+        0
+      ],
+      "resolution": 1024
+    }
+  },
+  "11": {
+    "class_type": "AUX_SoftEdgePreprocessor",
+    "inputs": {
+      "image": [
+        "2",
+        0
+      ],
+      "resolution": 1024,
+      "safe": true
+    }
+  },
+  "12": {
+    "class_type": "ControlNetLoader",
+    "inputs": {
+      "control_net_name": "controlnet_depth_sdxl.safetensors"
+    }
+  },
+  "13": {
+    "class_type": "ControlNetLoader",
+    "inputs": {
+      "control_net_name": "controlnet_softedge_sdxl.safetensors"
+    }
+  },
+  "14": {
+    "class_type": "ApplyControlNet",
+    "inputs": {
+      "conditioning": [
+        "4",
+        0
+      ],
+      "control_net": [
+        "12",
+        0
+      ],
+      "image": [
+        "10",
+        0
+      ],
+      "strength": 1.15,
+      "start_percent": 0.0,
+      "end_percent": 1.0
+    }
+  },
+  "15": {
+    "class_type": "ApplyControlNet",
+    "inputs": {
+      "conditioning": [
+        "14",
+        0
+      ],
+      "control_net": [
+        "13",
+        0
+      ],
+      "image": [
+        "11",
+        0
+      ],
+      "strength": 0.65,
+      "start_percent": 0.0,
+      "end_percent": 0.7
+    }
+  },
+  "20": {
+    "class_type": "KSampler",
+    "inputs": {
+      "model": [
+        "3",
+        0
+      ],
+      "positive": [
+        "15",
+        0
+      ],
+      "negative": [
+        "5",
+        0
+      ],
+      "latent_image": [
+        "6",
+        0
+      ],
+      "seed": 123456789,
+      "steps": 34,
+      "cfg": 5.5,
+      "sampler_name": "dpmpp_2m_sde",
+      "scheduler": "karras",
+      "denoise": 0.4
+    }
+  },
+  "30": {
+    "class_type": "CheckpointLoaderSimple",
+    "inputs": {
+      "ckpt_name": "sd_xl_refiner_1.0.safetensors"
+    }
+  },
+  "31": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "clip": [
+        "30",
+        1
+      ],
+      "text": "<PASTE_ELEVATION_POSITIVE_PROMPT_HERE>"
+    }
+  },
+  "32": {
+    "class_type": "CLIPTextEncode",
+    "inputs": {
+      "clip": [
+        "30",
+        1
+      ],
+      "text": "<PASTE_ELEVATION_NEGATIVE_PROMPT_HERE>"
+    }
+  },
+  "33": {
+    "class_type": "KSampler",
+    "inputs": {
+      "model": [
+        "30",
+        0
+      ],
+      "positive": [
+        "31",
+        0
+      ],
+      "negative": [
+        "32",
+        0
+      ],
+      "latent_image": [
+        "20",
+        0
+      ],
+      "seed": 123456789,
+      "steps": 12,
+      "cfg": 4.5,
+      "sampler_name": "dpmpp_2m_sde",
+      "scheduler": "karras",
+      "denoise": 0.22
+    }
+  },
+  "40": {
+    "class_type": "VAEDecode",
+    "inputs": {
+      "samples": [
+        "33",
+        0
+      ],
+      "vae": [
+        "3",
+        2
+      ]
+    }
+  },
+  "41": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "filename_prefix": "ELEVATION_RealVisXLv5",
+      "images": [
+        "40",
+        0
+      ]
+    }
+  }
+}

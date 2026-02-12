@@ -1,0 +1,494 @@
+{
+  "notes": {
+    "created": "2026-02-11",
+    "model_base": "RealVisXL V5.0",
+    "model_refiner": "SDXL 1.0 Refiner",
+    "important": "The AUX_* and ApplyControlNet class_type names may vary by your installed custom node packs. Build once in UI, then File \u2192 Export (API) to get exact class_type strings."
+  },
+  "prompt_blocks": {
+    "elevation": {
+      "positive_template": "[PROJECT]: {project_name}\n[VIEW]: straight-on elevation, orthographic, no perspective distortion, accurate openings and proportions, match the reference geometry exactly\n[STYLE]: photorealistic architectural visualization, professional archviz, clean composition, crisp edges, high dynamic range\n[MATERIALS]: {materials}\n[LIGHTING]: {lighting} (physically based), realistic shadows, global illumination\n[DETAIL]: accurate mullions, realistic glazing reflections, correct parapets/soffits, believable weathering at a subtle level\n[CONTEXT]: minimal context, simple ground plane, sky {sky_type}, no distracting objects\n[CAMERA]: centered, level horizon, straight verticals, 50mm equivalent, sharp focus\n",
+      "negative_template": "warped lines, perspective skew, crooked verticals, extra windows, missing windows, altered roofline,\nmoved doors, changed proportions, inconsistent mullions, melted geometry, fantasy elements,\npainterly, cartoon, low-res, blurry, noisy, oversaturated\n"
+    },
+    "interior": {
+      "positive_template": "[PROJECT]: {project_name}\n[VIEW]: interior perspective matching the reference camera and geometry exactly, two-point perspective, straight verticals\n[STYLE]: photorealistic architectural visualization, professional archviz, clean staging, high-end finish, realistic materials\n[MATERIALS]: {materials}\n[LIGHTING]: {lighting} (physically based), soft bounce, realistic shadows, global illumination\n[FURNISHINGS]: {furnishings} (only items that fit the reference layout and clearances)\n[DETAIL]: believable textures, correct scale, realistic reflections, subtle imperfections, no clutter\n[CAMERA]: eye-level {camera_height}m, 35mm equivalent, sharp focus, no extreme wide-angle distortion\n",
+      "negative_template": "warped walls, curved floors, impossible geometry, extra doors, extra windows, missing openings,\nfurniture blocking circulation, floating objects, clutter, surreal decor, fisheye, extreme wide angle,\nlow-res, blurry, noisy, cartoon, overprocessed\n"
+    }
+  },
+  "workflows_api_format": {
+    "elevation": {
+      "1": {
+        "class_type": "LoadImage",
+        "inputs": {
+          "image": "PUT_YOUR_CLAY_ELEVATION.png",
+          "upload": true
+        }
+      },
+      "2": {
+        "class_type": "ImageScale",
+        "inputs": {
+          "image": [
+            "1",
+            0
+          ],
+          "upscale_method": "lanczos",
+          "width": 1344,
+          "height": 768,
+          "crop": "center"
+        }
+      },
+      "3": {
+        "class_type": "CheckpointLoaderSimple",
+        "inputs": {
+          "ckpt_name": "RealVisXL_V5.0.safetensors"
+        }
+      },
+      "4": {
+        "class_type": "CLIPTextEncode",
+        "inputs": {
+          "clip": [
+            "3",
+            1
+          ],
+          "text": "<PASTE_ELEVATION_POSITIVE_PROMPT_HERE>"
+        }
+      },
+      "5": {
+        "class_type": "CLIPTextEncode",
+        "inputs": {
+          "clip": [
+            "3",
+            1
+          ],
+          "text": "<PASTE_ELEVATION_NEGATIVE_PROMPT_HERE>"
+        }
+      },
+      "6": {
+        "class_type": "VAEEncode",
+        "inputs": {
+          "pixels": [
+            "2",
+            0
+          ],
+          "vae": [
+            "3",
+            2
+          ]
+        }
+      },
+      "10": {
+        "class_type": "AUX_DepthAnythingPreprocessor",
+        "inputs": {
+          "image": [
+            "2",
+            0
+          ],
+          "resolution": 1024
+        }
+      },
+      "11": {
+        "class_type": "AUX_SoftEdgePreprocessor",
+        "inputs": {
+          "image": [
+            "2",
+            0
+          ],
+          "resolution": 1024,
+          "safe": true
+        }
+      },
+      "12": {
+        "class_type": "ControlNetLoader",
+        "inputs": {
+          "control_net_name": "controlnet_depth_sdxl.safetensors"
+        }
+      },
+      "13": {
+        "class_type": "ControlNetLoader",
+        "inputs": {
+          "control_net_name": "controlnet_softedge_sdxl.safetensors"
+        }
+      },
+      "14": {
+        "class_type": "ApplyControlNet",
+        "inputs": {
+          "conditioning": [
+            "4",
+            0
+          ],
+          "control_net": [
+            "12",
+            0
+          ],
+          "image": [
+            "10",
+            0
+          ],
+          "strength": 1.15,
+          "start_percent": 0.0,
+          "end_percent": 1.0
+        }
+      },
+      "15": {
+        "class_type": "ApplyControlNet",
+        "inputs": {
+          "conditioning": [
+            "14",
+            0
+          ],
+          "control_net": [
+            "13",
+            0
+          ],
+          "image": [
+            "11",
+            0
+          ],
+          "strength": 0.65,
+          "start_percent": 0.0,
+          "end_percent": 0.7
+        }
+      },
+      "20": {
+        "class_type": "KSampler",
+        "inputs": {
+          "model": [
+            "3",
+            0
+          ],
+          "positive": [
+            "15",
+            0
+          ],
+          "negative": [
+            "5",
+            0
+          ],
+          "latent_image": [
+            "6",
+            0
+          ],
+          "seed": 123456789,
+          "steps": 34,
+          "cfg": 5.5,
+          "sampler_name": "dpmpp_2m_sde",
+          "scheduler": "karras",
+          "denoise": 0.4
+        }
+      },
+      "30": {
+        "class_type": "CheckpointLoaderSimple",
+        "inputs": {
+          "ckpt_name": "sd_xl_refiner_1.0.safetensors"
+        }
+      },
+      "31": {
+        "class_type": "CLIPTextEncode",
+        "inputs": {
+          "clip": [
+            "30",
+            1
+          ],
+          "text": "<PASTE_ELEVATION_POSITIVE_PROMPT_HERE>"
+        }
+      },
+      "32": {
+        "class_type": "CLIPTextEncode",
+        "inputs": {
+          "clip": [
+            "30",
+            1
+          ],
+          "text": "<PASTE_ELEVATION_NEGATIVE_PROMPT_HERE>"
+        }
+      },
+      "33": {
+        "class_type": "KSampler",
+        "inputs": {
+          "model": [
+            "30",
+            0
+          ],
+          "positive": [
+            "31",
+            0
+          ],
+          "negative": [
+            "32",
+            0
+          ],
+          "latent_image": [
+            "20",
+            0
+          ],
+          "seed": 123456789,
+          "steps": 12,
+          "cfg": 4.5,
+          "sampler_name": "dpmpp_2m_sde",
+          "scheduler": "karras",
+          "denoise": 0.22
+        }
+      },
+      "40": {
+        "class_type": "VAEDecode",
+        "inputs": {
+          "samples": [
+            "33",
+            0
+          ],
+          "vae": [
+            "3",
+            2
+          ]
+        }
+      },
+      "41": {
+        "class_type": "SaveImage",
+        "inputs": {
+          "filename_prefix": "ELEVATION_RealVisXLv5",
+          "images": [
+            "40",
+            0
+          ]
+        }
+      }
+    },
+    "interior": {
+      "1": {
+        "class_type": "LoadImage",
+        "inputs": {
+          "image": "PUT_YOUR_CLAY_INTERIOR.png",
+          "upload": true
+        }
+      },
+      "2": {
+        "class_type": "ImageScale",
+        "inputs": {
+          "image": [
+            "1",
+            0
+          ],
+          "upscale_method": "lanczos",
+          "width": 1216,
+          "height": 832,
+          "crop": "center"
+        }
+      },
+      "3": {
+        "class_type": "CheckpointLoaderSimple",
+        "inputs": {
+          "ckpt_name": "RealVisXL_V5.0.safetensors"
+        }
+      },
+      "4": {
+        "class_type": "CLIPTextEncode",
+        "inputs": {
+          "clip": [
+            "3",
+            1
+          ],
+          "text": "<PASTE_INTERIOR_POSITIVE_PROMPT_HERE>"
+        }
+      },
+      "5": {
+        "class_type": "CLIPTextEncode",
+        "inputs": {
+          "clip": [
+            "3",
+            1
+          ],
+          "text": "<PASTE_INTERIOR_NEGATIVE_PROMPT_HERE>"
+        }
+      },
+      "6": {
+        "class_type": "VAEEncode",
+        "inputs": {
+          "pixels": [
+            "2",
+            0
+          ],
+          "vae": [
+            "3",
+            2
+          ]
+        }
+      },
+      "10": {
+        "class_type": "AUX_DepthAnythingPreprocessor",
+        "inputs": {
+          "image": [
+            "2",
+            0
+          ],
+          "resolution": 1024
+        }
+      },
+      "11": {
+        "class_type": "AUX_SoftEdgePreprocessor",
+        "inputs": {
+          "image": [
+            "2",
+            0
+          ],
+          "resolution": 1024,
+          "safe": true
+        }
+      },
+      "12": {
+        "class_type": "ControlNetLoader",
+        "inputs": {
+          "control_net_name": "controlnet_depth_sdxl.safetensors"
+        }
+      },
+      "13": {
+        "class_type": "ControlNetLoader",
+        "inputs": {
+          "control_net_name": "controlnet_softedge_sdxl.safetensors"
+        }
+      },
+      "14": {
+        "class_type": "ApplyControlNet",
+        "inputs": {
+          "conditioning": [
+            "4",
+            0
+          ],
+          "control_net": [
+            "12",
+            0
+          ],
+          "image": [
+            "10",
+            0
+          ],
+          "strength": 1.25,
+          "start_percent": 0.0,
+          "end_percent": 1.0
+        }
+      },
+      "15": {
+        "class_type": "ApplyControlNet",
+        "inputs": {
+          "conditioning": [
+            "14",
+            0
+          ],
+          "control_net": [
+            "13",
+            0
+          ],
+          "image": [
+            "11",
+            0
+          ],
+          "strength": 0.55,
+          "start_percent": 0.0,
+          "end_percent": 0.7
+        }
+      },
+      "20": {
+        "class_type": "KSampler",
+        "inputs": {
+          "model": [
+            "3",
+            0
+          ],
+          "positive": [
+            "15",
+            0
+          ],
+          "negative": [
+            "5",
+            0
+          ],
+          "latent_image": [
+            "6",
+            0
+          ],
+          "seed": 987654321,
+          "steps": 36,
+          "cfg": 5.0,
+          "sampler_name": "dpmpp_2m_sde",
+          "scheduler": "karras",
+          "denoise": 0.34
+        }
+      },
+      "30": {
+        "class_type": "CheckpointLoaderSimple",
+        "inputs": {
+          "ckpt_name": "sd_xl_refiner_1.0.safetensors"
+        }
+      },
+      "31": {
+        "class_type": "CLIPTextEncode",
+        "inputs": {
+          "clip": [
+            "30",
+            1
+          ],
+          "text": "<PASTE_INTERIOR_POSITIVE_PROMPT_HERE>"
+        }
+      },
+      "32": {
+        "class_type": "CLIPTextEncode",
+        "inputs": {
+          "clip": [
+            "30",
+            1
+          ],
+          "text": "<PASTE_INTERIOR_NEGATIVE_PROMPT_HERE>"
+        }
+      },
+      "33": {
+        "class_type": "KSampler",
+        "inputs": {
+          "model": [
+            "30",
+            0
+          ],
+          "positive": [
+            "31",
+            0
+          ],
+          "negative": [
+            "32",
+            0
+          ],
+          "latent_image": [
+            "20",
+            0
+          ],
+          "seed": 987654321,
+          "steps": 14,
+          "cfg": 4.2,
+          "sampler_name": "dpmpp_2m_sde",
+          "scheduler": "karras",
+          "denoise": 0.24
+        }
+      },
+      "40": {
+        "class_type": "VAEDecode",
+        "inputs": {
+          "samples": [
+            "33",
+            0
+          ],
+          "vae": [
+            "3",
+            2
+          ]
+        }
+      },
+      "41": {
+        "class_type": "SaveImage",
+        "inputs": {
+          "filename_prefix": "INTERIOR_RealVisXLv5",
+          "images": [
+            "40",
+            0
+          ]
+        }
+      }
+    }
+  }
+}
