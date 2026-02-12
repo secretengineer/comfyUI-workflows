@@ -1,6 +1,6 @@
 {
   "last_node_id": 26,
-  "last_link_id": 37,
+  "last_link_id": 39,
   "nodes": [
     {
       "id": 1,
@@ -36,7 +36,7 @@
           "name": "VAE",
           "type": "VAE",
           "links": [
-            35
+            38
           ]
         }
       ],
@@ -93,9 +93,9 @@
         "cnr_id": "comfyui"
       },
       "widgets_values": [
-        "None",
-        0.6,
-        0.6
+        "archisketch-v1.safetensors",
+        0.2,
+        0.2
       ]
     },
     {
@@ -144,9 +144,9 @@
         "cnr_id": "comfyui"
       },
       "widgets_values": [
-        "None",
-        0.4,
-        0.4
+        "ArchitecturalModels_v12.safetensors",
+        0.15,
+        0.15
       ]
     },
     {
@@ -196,9 +196,9 @@
         "cnr_id": "comfyui"
       },
       "widgets_values": [
-        "None",
-        0.3,
-        0.3
+        "add-detail-xl.safetensors",
+        0.1,
+        0.1
       ]
     },
     {
@@ -235,14 +235,14 @@
         "cnr_id": "comfyui"
       },
       "widgets_values": [
-        "photorealistic architectural visualization, interior daylight, accurate geometry, precise wall alignment, realistic materials, clean edges, physically correct lighting, global illumination, high detail, professional render, 35mm lens, straight verticals",
-        "",
         1024,
         768,
         0,
         0,
         1024,
-        768
+        768,
+        "photorealistic architectural visualization, interior daylight, accurate geometry, precise wall alignment, realistic materials, clean edges, physically correct lighting, global illumination, high detail, professional render, 35mm lens, straight verticals",
+        ""
       ]
     },
     {
@@ -271,8 +271,7 @@
           "name": "CONDITIONING",
           "type": "CONDITIONING",
           "links": [
-            11,
-            37
+            11
           ]
         }
       ],
@@ -280,14 +279,14 @@
         "cnr_id": "comfyui"
       },
       "widgets_values": [
-        "distorted layout, warped walls, curved lines, fantasy, inaccurate geometry, extra rooms, broken perspective, cartoon, low detail, overly stylized, fisheye",
-        "",
         1024,
         768,
         0,
         0,
         1024,
-        768
+        768,
+        "distorted layout, warped walls, curved lines, fantasy, inaccurate geometry, extra rooms, broken perspective, cartoon, low detail, overly stylized, fisheye",
+        ""
       ]
     },
     {
@@ -318,7 +317,7 @@
         {
           "name": "MASK",
           "type": "MASK",
-          "links": null
+          "links": []
         }
       ],
       "properties": {
@@ -362,8 +361,8 @@
         "cnr_id": "comfyui"
       },
       "widgets_values": [
-        1024,
-        false
+        "disable",
+        1024
       ]
     },
     {
@@ -392,7 +391,7 @@
           "name": "IMAGE",
           "type": "IMAGE",
           "links": [
-            18
+            19
           ]
         }
       ],
@@ -400,9 +399,8 @@
         "cnr_id": "comfyui"
       },
       "widgets_values": [
-        100,
-        200,
-        1024
+        0.35,
+        0.8
       ]
     },
     {
@@ -431,7 +429,7 @@
           "name": "IMAGE",
           "type": "IMAGE",
           "links": [
-            21
+            23
           ]
         }
       ],
@@ -439,8 +437,9 @@
         "cnr_id": "comfyui"
       },
       "widgets_values": [
-        1024,
-        "dpt_large"
+        6.283185307179586,
+        0.1,
+        1024
       ]
     },
     {
@@ -471,7 +470,7 @@
         "cnr_id": "comfyui"
       },
       "widgets_values": [
-        "controlnetxl_lineart.safetensors"
+        "mistoline_v10.safetensors"
       ]
     },
     {
@@ -494,7 +493,7 @@
           "name": "CONTROL_NET",
           "type": "CONTROL_NET",
           "links": [
-            19
+            20
           ]
         }
       ],
@@ -502,7 +501,7 @@
         "cnr_id": "comfyui"
       },
       "widgets_values": [
-        "controlnetxl_canny.safetensors"
+        "diffusers_xl_canny_full.safetensors"
       ]
     },
     {
@@ -525,7 +524,7 @@
           "name": "CONTROL_NET",
           "type": "CONTROL_NET",
           "links": [
-            22
+            24
           ]
         }
       ],
@@ -533,7 +532,7 @@
         "cnr_id": "comfyui"
       },
       "widgets_values": [
-        "controlnetxl_depth.safetensors"
+        "diffusers_xl_depth_full.safetensors"
       ]
     },
     {
@@ -552,9 +551,14 @@
       "mode": 0,
       "inputs": [
         {
-          "name": "conditioning",
+          "name": "positive",
           "type": "CONDITIONING",
           "link": 10
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 11
         },
         {
           "name": "control_net",
@@ -569,10 +573,17 @@
       ],
       "outputs": [
         {
-          "name": "CONDITIONING",
+          "name": "positive",
           "type": "CONDITIONING",
           "links": [
             17
+          ]
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "links": [
+            18
           ]
         }
       ],
@@ -580,7 +591,7 @@
         "cnr_id": "comfyui"
       },
       "widgets_values": [
-        0.85,
+        0.7,
         0.0,
         1.0
       ]
@@ -601,27 +612,39 @@
       "mode": 0,
       "inputs": [
         {
-          "name": "conditioning",
+          "name": "positive",
           "type": "CONDITIONING",
           "link": 17
         },
         {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 18
+        },
+        {
           "name": "control_net",
           "type": "CONTROL_NET",
-          "link": 19
+          "link": 20
         },
         {
           "name": "image",
           "type": "IMAGE",
-          "link": 18
+          "link": 19
         }
       ],
       "outputs": [
         {
-          "name": "CONDITIONING",
+          "name": "positive",
           "type": "CONDITIONING",
           "links": [
-            20
+            21
+          ]
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "links": [
+            22
           ]
         }
       ],
@@ -629,9 +652,9 @@
         "cnr_id": "comfyui"
       },
       "widgets_values": [
-        0.6,
+        0.45,
         0.0,
-        1.0
+        0.85
       ]
     },
     {
@@ -650,28 +673,41 @@
       "mode": 0,
       "inputs": [
         {
-          "name": "conditioning",
+          "name": "positive",
           "type": "CONDITIONING",
-          "link": 20
+          "link": 21
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 22
         },
         {
           "name": "control_net",
           "type": "CONTROL_NET",
-          "link": 22
+          "link": 24
         },
         {
           "name": "image",
           "type": "IMAGE",
-          "link": 21
+          "link": 23
         }
       ],
       "outputs": [
         {
-          "name": "CONDITIONING",
+          "name": "positive",
           "type": "CONDITIONING",
           "links": [
-            23,
-            24
+            25,
+            30
+          ]
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "links": [
+            26,
+            31
           ]
         }
       ],
@@ -679,9 +715,9 @@
         "cnr_id": "comfyui"
       },
       "widgets_values": [
-        0.4,
+        0.35,
         0.0,
-        1.0
+        0.65
       ]
     },
     {
@@ -704,7 +740,7 @@
           "name": "LATENT",
           "type": "LATENT",
           "links": [
-            25
+            27
           ]
         }
       ],
@@ -740,17 +776,17 @@
         {
           "name": "positive",
           "type": "CONDITIONING",
-          "link": 23
+          "link": 25
         },
         {
           "name": "negative",
           "type": "CONDITIONING",
-          "link": 11
+          "link": 26
         },
         {
           "name": "latent_image",
           "type": "LATENT",
-          "link": 25
+          "link": 27
         }
       ],
       "outputs": [
@@ -758,8 +794,8 @@
           "name": "LATENT",
           "type": "LATENT",
           "links": [
-            26,
-            34
+            28,
+            37
           ]
         }
       ],
@@ -768,6 +804,7 @@
       },
       "widgets_values": [
         0,
+        "fixed",
         30,
         5.0,
         "dpmpp_2m_sde",
@@ -793,12 +830,12 @@
         {
           "name": "samples",
           "type": "LATENT",
-          "link": 34
+          "link": 37
         },
         {
           "name": "vae",
           "type": "VAE",
-          "link": 35
+          "link": 38
         }
       ],
       "outputs": [
@@ -806,7 +843,7 @@
           "name": "IMAGE",
           "type": "IMAGE",
           "links": [
-            36
+            39
           ]
         }
       ],
@@ -832,7 +869,7 @@
         {
           "name": "images",
           "type": "IMAGE",
-          "link": 36
+          "link": 39
         }
       ],
       "outputs": [],
@@ -863,19 +900,19 @@
           "name": "MODEL",
           "type": "MODEL",
           "links": [
-            27
+            29
           ]
         },
         {
           "name": "CLIP",
           "type": "CLIP",
-          "links": null
+          "links": []
         },
         {
           "name": "VAE",
           "type": "VAE",
           "links": [
-            28
+            33
           ]
         }
       ],
@@ -883,7 +920,7 @@
         "cnr_id": "comfyui"
       },
       "widgets_values": [
-        "sdxl_refiner_1.0.safetensors"
+        "sd_xl_refiner_1.0.safetensors"
       ]
     },
     {
@@ -904,22 +941,22 @@
         {
           "name": "model",
           "type": "MODEL",
-          "link": 27
+          "link": 29
         },
         {
           "name": "positive",
           "type": "CONDITIONING",
-          "link": 24
+          "link": 30
         },
         {
           "name": "negative",
           "type": "CONDITIONING",
-          "link": 37
+          "link": 31
         },
         {
           "name": "latent_image",
           "type": "LATENT",
-          "link": 26
+          "link": 28
         }
       ],
       "outputs": [
@@ -927,7 +964,7 @@
           "name": "LATENT",
           "type": "LATENT",
           "links": [
-            29
+            32
           ]
         }
       ],
@@ -936,6 +973,7 @@
       },
       "widgets_values": [
         0,
+        "fixed",
         20,
         4.0,
         "dpmpp_2m_sde",
@@ -961,12 +999,12 @@
         {
           "name": "samples",
           "type": "LATENT",
-          "link": 29
+          "link": 32
         },
         {
           "name": "vae",
           "type": "VAE",
-          "link": 28
+          "link": 33
         }
       ],
       "outputs": [
@@ -974,8 +1012,7 @@
           "name": "IMAGE",
           "type": "IMAGE",
           "links": [
-            30,
-            31
+            34
           ]
         }
       ],
@@ -1003,7 +1040,7 @@
           "name": "UPSCALE_MODEL",
           "type": "UPSCALE_MODEL",
           "links": [
-            32
+            35
           ]
         }
       ],
@@ -1032,12 +1069,12 @@
         {
           "name": "upscale_model",
           "type": "UPSCALE_MODEL",
-          "link": 32
+          "link": 35
         },
         {
           "name": "image",
           "type": "IMAGE",
-          "link": 31
+          "link": 34
         }
       ],
       "outputs": [
@@ -1045,7 +1082,7 @@
           "name": "IMAGE",
           "type": "IMAGE",
           "links": [
-            33
+            36
           ]
         }
       ],
@@ -1071,7 +1108,7 @@
         {
           "name": "images",
           "type": "IMAGE",
-          "link": 33
+          "link": 36
         }
       ],
       "outputs": [],
@@ -1168,8 +1205,8 @@
       11,
       4,
       0,
-      16,
-      2,
+      12,
+      1,
       "CONDITIONING"
     ],
     [
@@ -1201,7 +1238,7 @@
       6,
       0,
       12,
-      2,
+      3,
       "IMAGE"
     ],
     [
@@ -1209,7 +1246,7 @@
       9,
       0,
       12,
-      1,
+      2,
       "CONTROL_NET"
     ],
     [
@@ -1222,22 +1259,30 @@
     ],
     [
       18,
-      7,
-      0,
+      12,
+      1,
       13,
-      2,
-      "IMAGE"
+      1,
+      "CONDITIONING"
     ],
     [
       19,
-      10,
+      7,
       0,
       13,
-      1,
-      "CONTROL_NET"
+      3,
+      "IMAGE"
     ],
     [
       20,
+      10,
+      0,
+      13,
+      2,
+      "CONTROL_NET"
+    ],
+    [
+      21,
       13,
       0,
       14,
@@ -1245,23 +1290,31 @@
       "CONDITIONING"
     ],
     [
-      21,
-      8,
-      0,
-      14,
-      2,
-      "IMAGE"
-    ],
-    [
       22,
-      11,
-      0,
+      13,
+      1,
       14,
       1,
-      "CONTROL_NET"
+      "CONDITIONING"
     ],
     [
       23,
+      8,
+      0,
+      14,
+      3,
+      "IMAGE"
+    ],
+    [
+      24,
+      11,
+      0,
+      14,
+      2,
+      "CONTROL_NET"
+    ],
+    [
+      25,
       14,
       0,
       16,
@@ -1269,15 +1322,15 @@
       "CONDITIONING"
     ],
     [
-      24,
+      26,
       14,
-      0,
-      22,
       1,
+      16,
+      2,
       "CONDITIONING"
     ],
     [
-      25,
+      27,
       15,
       0,
       16,
@@ -1285,7 +1338,7 @@
       "LATENT"
     ],
     [
-      26,
+      28,
       16,
       0,
       22,
@@ -1293,7 +1346,7 @@
       "LATENT"
     ],
     [
-      27,
+      29,
       21,
       0,
       22,
@@ -1301,7 +1354,31 @@
       "MODEL"
     ],
     [
-      28,
+      30,
+      14,
+      0,
+      22,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      31,
+      14,
+      1,
+      22,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      32,
+      22,
+      0,
+      23,
+      0,
+      "LATENT"
+    ],
+    [
+      33,
       21,
       2,
       23,
@@ -1309,23 +1386,7 @@
       "VAE"
     ],
     [
-      29,
-      22,
-      0,
-      23,
-      0,
-      "LATENT"
-    ],
-    [
-      30,
-      23,
-      0,
-      18,
-      0,
-      "IMAGE"
-    ],
-    [
-      31,
+      34,
       23,
       0,
       25,
@@ -1333,7 +1394,7 @@
       "IMAGE"
     ],
     [
-      32,
+      35,
       24,
       0,
       25,
@@ -1341,7 +1402,7 @@
       "UPSCALE_MODEL"
     ],
     [
-      33,
+      36,
       25,
       0,
       26,
@@ -1349,7 +1410,7 @@
       "IMAGE"
     ],
     [
-      34,
+      37,
       16,
       0,
       17,
@@ -1357,7 +1418,7 @@
       "LATENT"
     ],
     [
-      35,
+      38,
       1,
       2,
       17,
@@ -1365,23 +1426,16 @@
       "VAE"
     ],
     [
-      36,
+      39,
       17,
       0,
       18,
       0,
       "IMAGE"
-    ],
-    [
-      37,
-      4,
-      0,
-      22,
-      2,
-      "CONDITIONING"
     ]
   ],
   "groups": [],
   "config": {},
-  "extra": {}
+  "extra": {},
+  "version": 0.4
 }
