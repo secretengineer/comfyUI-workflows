@@ -1,15 +1,15 @@
 {
   "id": "cf24d62b-553f-4325-8c03-b1252b801649",
   "revision": 0,
-  "last_node_id": 198,
+  "last_node_id": 199,
   "last_link_id": 240,
   "nodes": [
     {
       "id": 164,
       "type": "VAEDecode",
       "pos": [
-        548.8741805034138,
-        338.4201034718529
+        548.8743936914375,
+        338.42018428405163
       ],
       "size": [
         225,
@@ -18,7 +18,7 @@
       "flags": {
         "collapsed": false
       },
-      "order": 9,
+      "order": 10,
       "mode": 0,
       "inputs": [
         {
@@ -52,15 +52,15 @@
       "id": 171,
       "type": "SaveImage",
       "pos": [
-        825.0258992485124,
-        337.792521018084
+        825.0264357831129,
+        337.79265440381096
       ],
       "size": [
-        738,
-        1043.15625
+        786.625,
+        1012.46875
       ],
       "flags": {},
-      "order": 10,
+      "order": 11,
       "mode": 0,
       "inputs": [
         {
@@ -84,8 +84,8 @@
       "id": 162,
       "type": "EmptySD3LatentImage",
       "pos": [
-        -457.6094284103756,
-        714.7802909522737
+        -79.98646143375458,
+        910.3934905243743
       ],
       "size": [
         300.71875,
@@ -122,15 +122,15 @@
       "id": 163,
       "type": "KSampler",
       "pos": [
-        166.50996455844597,
-        329.97132511549614
+        166.51053237729366,
+        329.9714050180663
       ],
       "size": [
         355.4375,
         316.65625
       ],
       "flags": {},
-      "order": 8,
+      "order": 9,
       "mode": 0,
       "inputs": [
         {
@@ -170,7 +170,7 @@
         "Node name for S&R": "KSampler"
       },
       "widgets_values": [
-        328229232170640,
+        427764823416207,
         "randomize",
         10,
         1,
@@ -183,15 +183,15 @@
       "id": 191,
       "type": "ModelSamplingAuraFlow",
       "pos": [
-        -128.96210226263793,
-        112.87230964784794
+        -128.96167449922154,
+        112.87242587292508
       ],
       "size": [
         324,
         79.328125
       ],
       "flags": {},
-      "order": 6,
+      "order": 7,
       "mode": 0,
       "inputs": [
         {
@@ -222,8 +222,8 @@
       "id": 195,
       "type": "Note",
       "pos": [
-        -600.378528231319,
-        -45.13038785649857
+        -600.3774759953424,
+        -45.13037166833652
       ],
       "size": [
         388.625,
@@ -246,15 +246,15 @@
       "id": 6,
       "type": "CLIPTextEncode",
       "pos": [
-        -623.7021514526025,
-        488.4810510769158
+        -612.1706946635873,
+        506.3960447399408
       ],
       "size": [
-        509.3125,
-        124.65625
+        514.25,
+        400.53125
       ],
       "flags": {},
-      "order": 4,
+      "order": 5,
       "mode": 0,
       "inputs": [
         {
@@ -279,7 +279,7 @@
         "Node name for S&R": "CLIPTextEncode"
       },
       "widgets_values": [
-        "Portrait photo of a futuristic orange steampunk robot, red eyes, close up head and shoulders, robot looking directly at the camera, intense mechanical gaze, advanced yet decayed design, fusion of futuristic technology and old industrial machinery, rusty metal surfaces, worn paint, exposed cables, glowing inner components, lost world atmosphere, abandoned civilization feeling, dramatic studio lighting, strong contrast, solid black background, cinematic shadows, shallow depth of field, ultra detailed, realistic photography style, high resolution, dark and moody tone"
+        "A cyborg woman with a head enclosure and circuits running inside.\n\nPart of her face is a cut-out to enable the view of the inside workings of the electronics, showing that it's just a computer with exposed motherboard, electronic components, including capacitors, resistors, mini barrel transformers, coils, transistors, regulators, MOSFETs and gold traces on a modern bluish board.\n\nA display where part of the backboard is representative of a storefront, an expensive steampunk store named \"L.A. Squeak!\", indicated by the engraved copper plate above its entry way, some wires showing inside the cyborg exterior plating are a bit worn but still functional, distressed in areas around the mid section.\n\nThe steampunk cyborg is from the future so let's make her a spacepunk style and add a glass exterior, making it effectively her exoskeleton, and make sure to place her close enough to the store front so that it's obvious that she's a display item, an example of the technology sold in the establishment.\n\nThere's a snowy dusting beneath her feet to give a sense of season, gift giving, warmth and comfort.\n\nShe's amidst an organized collection of various electronic components and tools, arranged on a the powdery background.\n\nThe image is taken from a top-down perspective, providing a clear view of all objects. The components include:  - A blue printed circuit board (PCB) in the center-left, featuring numerous small electronic components. - A black power adapter with a red plug on the top-left. - Several small white IC chips scattered around the image. - Two red and blue ribbon cables on the upper right. - An assortment of resistors, capacitors, and other small electronic parts in various colors, including white, blue, and yellow. - Multiple small black and silver connectors and switches. - Red and yellow capacitors near the center. - Small black and white IC packages with gold pins. - Metal spool connectors and a red and black connector on the right.    The objects are arranged in a somewhat random but visually balanced manner, with a mix of colors and textures. The photograph uses a bright, even lighting technique, which highlights the details and colors of each component. The overall style is clean and technical, suitable for a catalog or educational purpose. The white background provides high contrast, making the colors and shapes of the components stand out clearly. The posture of all components is flat and horizontal, with no objects standing out vertically.\n\n// Rite of Wrong (rite-of-wrong-z-image-60229) : 0.8"
       ],
       "color": "#232",
       "bgcolor": "#353"
@@ -288,8 +288,8 @@
       "id": 196,
       "type": "MarkdownNote",
       "pos": [
-        -1273.8952850147286,
-        515.8307525185131
+        -1273.895066440572,
+        515.8308419723305
       ],
       "size": [
         585.71875,
@@ -305,7 +305,7 @@
       "title": "PatRyanThings Art and Engineering - START HERE",
       "properties": {},
       "widgets_values": [
-        "# MODELS AND NODES USED IN THIS WORKFLOW  \n\n---\n\n## 🟣 Load Checkpoint\n### Download **z-image-turbo-fp8-aio.safetensors** ~10GB from [HERE](https://huggingface.co/SeeSee21/Z-Image-Turbo-AIO/resolve/main/z-image-turbo-fp8-aio.safetensors?download=true)\n\n### Or \n\n### Download **z-image-turbo-bf16-aio.safetensors** ~20 GB from [HERE](https://huggingface.co/SeeSee21/Z-Image-Turbo-AIO/resolve/main/z-image-turbo-bf16-aio.safetensors?download=true)\n\n📁 **Place in:** `ComfyUI/models/checkpoints/\n\n\nMore info about the AIO models [HERE](https://huggingface.co/SeeSee21/Z-Image-Turbo-AIO)\n\n---\n\n## 🟣 LoraLoaderModelOnly\n\n### Download the **Rite of Wrong.safetensors** from [HERE](https://civitai.com/models/2296072?modelVersionId=2583675?download=true)  \n\n📁 **Place in:** `ComfyUI/models/loras/ \n\n---\n\n## 🧩 Nodes Installed from Manager  \n\n- None\n\n"
+        "# MODELS AND NODES USED IN THIS WORKFLOW  \n\n---\n\n## 🟣 Load Checkpoint\n### Download **z-image-turbo-fp8-aio.safetensors** ~10GB from [HERE](https://huggingface.co/SeeSee21/Z-Image-Turbo-AIO/resolve/main/z-image-turbo-fp8-aio.safetensors?download=true)\n\n### Or \n\n### Download **z-image-turbo-bf16-aio.safetensors** ~20 GB from [HERE](https://huggingface.co/SeeSee21/Z-Image-Turbo-AIO/resolve/main/z-image-turbo-bf16-aio.safetensors?download=true)\n\n📁 **Place in:** `ComfyUI/models/checkpoints/\n\n\nMore info about the AIO models [HERE](https://huggingface.co/SeeSee21/Z-Image-Turbo-AIO)\n\n---\n\n## 🟣 Load LoRA (Model and Clip)\n\n### Download the **Rite of Wrong.safetensors** from [HERE](https://civitai.com/models/2296072?modelVersionId=2583675?download=true)  \n\n📁 **Place in:** `ComfyUI/models/loras/ \n\n---\n\n## 🧩 Nodes Installed from Manager  \n\n- None\n\n"
       ],
       "color": "#432",
       "bgcolor": "#653"
@@ -314,8 +314,8 @@
       "id": 193,
       "type": "CheckpointLoaderSimple",
       "pos": [
-        -1274.4669418402566,
-        341.2292371024266
+        -1285.9830269694817,
+        302.84065176769104
       ],
       "size": [
         628.9375,
@@ -362,15 +362,15 @@
       "id": 197,
       "type": "LoraLoader",
       "pos": [
-        -598.1114603174767,
-        107.05486087660148
+        -598.1104638959305,
+        107.05507802764816
       ],
       "size": [
         402.9375,
-        173.9375
+        170
       ],
       "flags": {},
-      "order": 5,
+      "order": 6,
       "mode": 0,
       "inputs": [
         {
@@ -415,15 +415,15 @@
       "id": 198,
       "type": "CLIPTextEncode",
       "pos": [
-        -80.95453371486394,
-        718.1824841341236
+        -120.08276810632447,
+        247.5774288026454
       ],
       "size": [
         225,
         124.65625
       ],
       "flags": {},
-      "order": 7,
+      "order": 8,
       "mode": 0,
       "inputs": [
         {
@@ -449,6 +449,29 @@
       "widgets_values": [
         "blurry, drawing, illustration"
       ]
+    },
+    {
+      "id": 199,
+      "type": "Note",
+      "pos": [
+        -100.30682662607728,
+        1114.4850604696069
+      ],
+      "size": [
+        514.234375,
+        104.15625
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "EmptySD3LatentImage\twidth\t1088\t1280\tBetter fidelity for Z-Image.\nEmptySD3LatentImage\theight\t1440\t1536\tBetter vertical composition."
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
     }
   ],
   "links": [
@@ -553,10 +576,10 @@
   "config": {},
   "extra": {
     "ds": {
-      "scale": 0.6303940863128584,
+      "scale": 1.7985878990921782,
       "offset": [
-        1351.1435603357409,
-        177.97765713125796
+        384.60483685709903,
+        -777.9183325884965
       ]
     },
     "frontendVersion": "1.38.13",
