@@ -40,7 +40,7 @@
         60
       ],
       "flags": {},
-      "order": 11,
+      "order": 9,
       "mode": 0,
       "inputs": [
         {
@@ -80,7 +80,7 @@
         58
       ],
       "flags": {},
-      "order": 12,
+      "order": 10,
       "mode": 0,
       "inputs": [
         {
@@ -120,7 +120,7 @@
         82
       ],
       "flags": {},
-      "order": 15,
+      "order": 13,
       "mode": 0,
       "inputs": [
         {
@@ -184,7 +184,7 @@
         46
       ],
       "flags": {},
-      "order": 18,
+      "order": 16,
       "mode": 0,
       "inputs": [
         {
@@ -260,62 +260,6 @@
       ]
     },
     {
-      "id": 59,
-      "type": "MarkdownNote",
-      "pos": [
-        -877.7849731445312,
-        134.99159240722656
-      ],
-      "size": [
-        459.4347229003906,
-        727.5046997070312
-      ],
-      "flags": {},
-      "order": 3,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [],
-      "title": "👑 Pixaroma - Note - START HERE (Episode 67)",
-      "properties": {},
-      "widgets_values": [
-        "# MODELS USED IN THIS WORKFLOW  \n---\n\n---\n\n## 🟣 Unet Loader GGUF (NEEDS 2 MODELS)  \nDownload **wan2.2_i2v_high_noise_14B_Q4_K_M.ggu** from [HERE](https://huggingface.co/bullerwins/Wan2.2-I2V-A14B-GGUF/resolve/main/wan2.2_i2v_high_noise_14B_Q4_K_M.gguf?download=true)  \n\nand also\n\nDownload **wan2.2_i2v_low_noise_14B_Q4_K_M.gguf** from\n[HERE](https://huggingface.co/bullerwins/Wan2.2-I2V-A14B-GGUF/resolve/main/wan2.2_i2v_low_noise_14B_Q4_K_M.gguf?download=true)\n\n\n📁 **Place in:** `ComfyUI/models/diffusion_models`  \n\nOr download **Different Q version** depending on your VRAM from [HERE](https://huggingface.co/bullerwins/Wan2.2-I2V-A14B-GGUF/tree/main)  \n\n---  \n\n## 🟣 Load CLIP  \nDownload **umt5_xxl_fp8_e4m3fn_scaled.safetensors** from [HERE](https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/resolve/main/split_files/text_encoders/umt5_xxl_fp8_e4m3fn_scaled.safetensors?download=true)  \n\n📁 **Place in:** `ComfyUI/models/text_encoders`  \n\n---  \n\n## 🟣 Load VAE  \nDownload **wan_2.1_vae.safetensors** from [HERE](https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/resolve/main/split_files/vae/wan_2.1_vae.safetensors?download=true)  \n\n📁 **Place in:** `ComfyUI/models/vae`  \n\n---\n\n## 🟣 LoraLoaderModelOnly \nDownload **Wan2.2-Lightning_I2V-A14B-4steps-lora_HIGH_fp16.safetensors** from [HERE](https://huggingface.co/Kijai/WanVideo_comfy/resolve/main/LoRAs/Wan22-Lightning/old/Wan2.2-Lightning_I2V-A14B-4steps-lora_HIGH_fp16.safetensors?download=true)  \n\nand \n\nDownload **Wan2.2-Lightning_I2V-A14B-4steps-lora_LOW_fp16.safetensors** from [HERE](https://huggingface.co/Kijai/WanVideo_comfy/resolve/main/LoRAs/Wan22-Lightning/old/Wan2.2-Lightning_I2V-A14B-4steps-lora_LOW_fp16.safetensors?download=true)  \n\n📁 **Place in:** `ComfyUI/models/loras`  \n\n\n---\n\n## 🧩 Nodes Installed from Manager  \n\n- **ComfyUI-GGUF**\n- **ComfyUI-VideoHelperSuite**\n- **rgthree-comfy**\n\n## 📚 Resources  \n🎥 **Tutorials:** [Pixaroma YouTube Channel](https://www.youtube.com/@pixaroma)  \n💬 **Community Discord:** [Join Here](https://discord.com/invite/gggpkVgBf3)\n\nRead More about it [HERE](https://docs.comfy.org/tutorials/video/wan/wan2_2) and [HERE](https://huggingface.co/Wan-AI/Wan2.2-I2V-A14B)"
-      ],
-      "color": "#432",
-      "bgcolor": "#653"
-    },
-    {
-      "id": 132,
-      "type": "Label (rgthree)",
-      "pos": [
-        -840.143798828125,
-        55.776878356933594
-      ],
-      "size": [
-        384.15234375,
-        28
-      ],
-      "flags": {
-        "allow_interaction": true
-      },
-      "order": 4,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [],
-      "title": "Wan 2.2 I2V 14b GGUF + Lora",
-      "properties": {
-        "fontSize": 28,
-        "fontFamily": "Arial",
-        "fontColor": "#f8a742",
-        "textAlign": "center",
-        "backgroundColor": "transparent",
-        "padding": 0,
-        "borderRadius": 0,
-        "angle": 0
-      },
-      "color": "#fff0",
-      "bgcolor": "#fff0"
-    },
-    {
       "id": 122,
       "type": "VHS_VideoCombine",
       "pos": [
@@ -327,7 +271,7 @@
         675.4019470214844
       ],
       "flags": {},
-      "order": 19,
+      "order": 17,
       "mode": 0,
       "inputs": [
         {
@@ -381,13 +325,13 @@
           "hidden": false,
           "paused": false,
           "params": {
-            "filename": "WanVideo_00033.mp4",
+            "filename": "WanVideo_00034.mp4",
             "subfolder": "",
             "type": "output",
             "format": "video/h264-mp4",
             "frame_rate": 16,
-            "workflow": "WanVideo_00033.png",
-            "fullpath": "D:\\ComfyUI-TestBed\\ComfyUI-Easy-Install\\ComfyUI\\output\\WanVideo_00033.mp4"
+            "workflow": "WanVideo_00034.png",
+            "fullpath": "D:\\ComfyUI-TestBed\\ComfyUI-Easy-Install\\ComfyUI\\output\\WanVideo_00034.mp4"
           },
           "muted": false
         }
@@ -405,7 +349,7 @@
         334
       ],
       "flags": {},
-      "order": 17,
+      "order": 15,
       "mode": 0,
       "inputs": [
         {
@@ -470,7 +414,7 @@
       "flags": {
         "collapsed": false
       },
-      "order": 10,
+      "order": 8,
       "mode": 0,
       "inputs": [
         {
@@ -513,7 +457,7 @@
         210
       ],
       "flags": {},
-      "order": 13,
+      "order": 11,
       "mode": 0,
       "inputs": [
         {
@@ -598,7 +542,7 @@
         334
       ],
       "flags": {},
-      "order": 16,
+      "order": 14,
       "mode": 0,
       "inputs": [
         {
@@ -638,7 +582,7 @@
       },
       "widgets_values": [
         "enable",
-        393778821917050,
+        358223255087853,
         "randomize",
         20,
         3,
@@ -647,47 +591,6 @@
         0,
         10,
         "enable"
-      ]
-    },
-    {
-      "id": 113,
-      "type": "LoadImage",
-      "pos": [
-        -400,
-        730
-      ],
-      "size": [
-        350,
-        490
-      ],
-      "flags": {},
-      "order": 5,
-      "mode": 0,
-      "inputs": [],
-      "outputs": [
-        {
-          "name": "IMAGE",
-          "type": "IMAGE",
-          "slot_index": 0,
-          "links": [
-            178
-          ]
-        },
-        {
-          "name": "MASK",
-          "type": "MASK",
-          "slot_index": 1,
-          "links": null
-        }
-      ],
-      "properties": {
-        "cnr_id": "comfy-core",
-        "ver": "0.3.45",
-        "Node name for S&R": "LoadImage"
-      },
-      "widgets_values": [
-        "UP_00022_.png",
-        "image"
       ]
     },
     {
@@ -702,7 +605,7 @@
         59.98149108886719
       ],
       "flags": {},
-      "order": 6,
+      "order": 3,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -744,7 +647,7 @@
         58
       ],
       "flags": {},
-      "order": 7,
+      "order": 4,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -777,7 +680,7 @@
         58
       ],
       "flags": {},
-      "order": 8,
+      "order": 5,
       "mode": 0,
       "inputs": [],
       "outputs": [
@@ -810,7 +713,7 @@
         82
       ],
       "flags": {},
-      "order": 14,
+      "order": 12,
       "mode": 0,
       "inputs": [
         {
@@ -850,7 +753,7 @@
         164.31304931640625
       ],
       "flags": {},
-      "order": 9,
+      "order": 7,
       "mode": 0,
       "inputs": [
         {
@@ -876,10 +779,51 @@
         "Node name for S&R": "CLIPTextEncode"
       },
       "widgets_values": [
-        "Two women standing next to each other facing the viewer both turn around at the same time and wave at the boat going by."
+        "Your prompt here"
       ],
       "color": "#232",
       "bgcolor": "#353"
+    },
+    {
+      "id": 113,
+      "type": "LoadImage",
+      "pos": [
+        -400,
+        730
+      ],
+      "size": [
+        350,
+        490
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            178
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "slot_index": 1,
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.45",
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "UP_00022_.png",
+        "image"
+      ]
     }
   ],
   "links": [
@@ -1056,10 +1000,10 @@
   "config": {},
   "extra": {
     "ds": {
-      "scale": 1.9784466890013692,
+      "scale": 1.3513057093104164,
       "offset": [
-        461.53375188287964,
-        -164.02725384872633
+        878.251067718042,
+        -259.6471354797677
       ]
     },
     "frontendVersion": "1.38.13",
