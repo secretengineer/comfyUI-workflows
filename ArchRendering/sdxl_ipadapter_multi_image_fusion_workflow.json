@@ -46,7 +46,8 @@
       },
       "widgets_values": [
         "sd_xl_base_1.0.safetensors"
-      ]
+      ],
+      "title": "1) SDXL Checkpoint"
     },
     {
       "id": 2,
@@ -90,7 +91,8 @@
         1024,
         "ultra realistic photograph, seamless fusion of all reference images, natural proportions, consistent lighting, realistic skin and materials, photographic detail, believable shadows, coherent composition",
         ""
-      ]
+      ],
+      "title": "2) Positive Prompt"
     },
     {
       "id": 3,
@@ -134,7 +136,8 @@
         1024,
         "distorted anatomy, duplicate features, mismatched lighting, collage look, cutout edges, extra limbs, deformed hands, blurry, low detail, oversaturated, plastic skin",
         ""
-      ]
+      ],
+      "title": "3) Negative Prompt"
     },
     {
       "id": 4,
@@ -170,7 +173,8 @@
       },
       "widgets_values": [
         ""
-      ]
+      ],
+      "title": "4) Person A / Reference Image"
     },
     {
       "id": 5,
@@ -206,7 +210,8 @@
       },
       "widgets_values": [
         ""
-      ]
+      ],
+      "title": "5) Person B / Reference Image"
     },
     {
       "id": 6,
@@ -238,7 +243,8 @@
       },
       "widgets_values": [
         "CLIP-ViT-H-14-laion2B-s32B-b79K.safetensors"
-      ]
+      ],
+      "title": "6) CLIP Vision Loader"
     },
     {
       "id": 7,
@@ -270,7 +276,8 @@
       },
       "widgets_values": [
         "ip-adapter-plus_sdxl_vit-h.safetensors"
-      ]
+      ],
+      "title": "7) IPAdapter Model Loader"
     },
     {
       "id": 8,
@@ -337,7 +344,8 @@
         0,
         0.8,
         "V only"
-      ]
+      ],
+      "title": "8) IPAdapter Apply - Person A"
     },
     {
       "id": 9,
@@ -404,7 +412,8 @@
         0,
         0.8,
         "V only"
-      ]
+      ],
+      "title": "9) IPAdapter Apply - Person B"
     },
     {
       "id": 10,
@@ -437,7 +446,8 @@
         1024,
         1024,
         1
-      ]
+      ],
+      "title": "10) Output Canvas Size (Empty Latent)"
     },
     {
       "id": 11,
@@ -495,7 +505,8 @@
         "dpmpp_2m",
         "karras",
         1.0
-      ]
+      ],
+      "title": "11) KSampler"
     },
     {
       "id": 12,
@@ -534,7 +545,8 @@
       ],
       "properties": {
         "Node name for S&R": "VAEDecode"
-      }
+      },
+      "title": "12) VAE Decode"
     },
     {
       "id": 13,
@@ -563,7 +575,8 @@
       },
       "widgets_values": [
         "IPAdapter_SDXL_Fusion"
-      ]
+      ],
+      "title": "13) Save Final Image"
     }
   ],
   "links": [
